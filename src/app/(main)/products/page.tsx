@@ -10,12 +10,12 @@ import PaginationProducts from "@/components/products/PaginationProducts";
 import {ProductService} from "@/lib/services/products";
 import {toast} from "sonner";
 import Loader from "@/components/Loader";
-import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTrigger} from "@/components/ui/sheet";
+import {Sheet, SheetContent, SheetDescription,SheetTitle, SheetHeader, SheetTrigger} from "@/components/ui/sheet";
 import {Settings2, X} from "lucide-react";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {Checkbox} from "@/components/ui/checkbox";
 import {Label} from "@/components/ui/label";
-
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 const Page =  () => {
     const [categories, setCategories] = useState<Category[]>();
@@ -113,8 +113,14 @@ const Page =  () => {
                         <span className={`p-2 active:bg-darkgray hover:bg-darkgray`}><Settings2 className={`mx-auto`}/></span>
                     </SheetTrigger>
                     <SheetContent className={`transition-all duration-200 overflow-auto`}>
+                        <SheetHeader className="sr-only">
+                            <SheetTitle>Filter Sidebar</SheetTitle>
+                        </SheetHeader>
                         <h1 className={`logo text-3xl p-2 text-center text-primary`}>SPORTSW</h1>
                         <SheetHeader className={`py-0 my-0`}>
+                            <VisuallyHidden>
+                                <SheetTitle>Categories Options</SheetTitle>
+                            </VisuallyHidden>
                             <div>
                                 <Accordion type="single" collapsible>
                                     <AccordionItem value="item-1" className={`text-darkgray py-0 my-0`}>
@@ -144,6 +150,9 @@ const Page =  () => {
                             </div>
                         </SheetHeader>
                         <SheetHeader className={`py-0 my-0`}>
+                            <VisuallyHidden>
+                                <SheetTitle>Brands Options</SheetTitle>
+                            </VisuallyHidden>
                             <div>
                                 <Accordion type="single" collapsible className={`py-0 my-0`}>
                                     <AccordionItem value="item-1" className={`text-darkgray`}>
@@ -168,6 +177,9 @@ const Page =  () => {
                             </div>
                         </SheetHeader>
                         <SheetHeader className={`py-0 my-0`}>
+                            <VisuallyHidden>
+                                <SheetTitle></SheetTitle>
+                            </VisuallyHidden>
                             <SheetDescription>
                                 <button onClick={fetchProducts} className={`flex gap-2 text-darkgray hover:text-primary text-md font-semibold border-b border-darkgray hover:border-primary cursor-pointer`}>
                                     <X className={`w-[20px]`}/>CLEAR ALL FILTER
