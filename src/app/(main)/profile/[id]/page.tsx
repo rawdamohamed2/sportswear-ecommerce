@@ -5,14 +5,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import {
-    User,
-    Mail,
-    Phone,
-    MapPin,
     ShoppingBag,
-    Heart,
     LogOut,
-    Edit,
 } from "lucide-react";
 import {useStore} from "@/lib/store/store";
 import {useCartStore} from "@/lib/store/CartStore";

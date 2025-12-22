@@ -17,18 +17,18 @@ import Loader from "@/components/Loader";
 import {format} from "date-fns";
 import {Order} from '@/types'
 import {redirect} from "next/navigation";
+import {CheckCircle, Clock, Package, Truck, XCircle} from "lucide-react";
 type OrderStatus = 'pending' | 'processing' | 'shipped'| 'delivered' | 'cancelled';
 type FilterStatus = "all" | OrderStatus|'All';
 
 
 const statusStyle: Record<OrderStatus, string> = {
     pending: "bg-yellow-100 text-yellow-700",
-    processing: "bg-red-100 text-red-700",
-    shipped: "bg-blue-100 text-blue-700",
+    processing: "bg-blue-100 text-blue-600",
+    shipped: "bg-purple-100 text-purple-600",
     delivered: "bg-green-100 text-green-700",
-    cancelled: "bg-gray-100 text-gray-700",
+    cancelled: "bg-red-100 text-red-800",
 }
-
 
 
 export default function OrdersPage() {
@@ -93,6 +93,7 @@ export default function OrdersPage() {
             <p className="text-center text-darkgray text-2xl font-bold py-20">Something is went wrong</p>
         </section>
     }
+
     return (
     <section className="margin-up container mx-auto px-4 py-10 text-darkgray">
         {/* Page Title */}

@@ -1,21 +1,20 @@
 "use client"
 
-import Link from 'next/link'
-import { Menu } from 'lucide-react'
-import { LuUser } from "react-icons/lu"
-import { LiaShoppingCartSolid } from "react-icons/lia"
-import { useStore } from '@/lib/store/store'
+import Link from 'next/link';
+import { Menu } from 'lucide-react';
+import { LuUser } from "react-icons/lu";
+import { LiaShoppingCartSolid } from "react-icons/lia";
+import { useStore } from '@/lib/store/store';
 import {
     Sheet,
     SheetContent,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from "@/components/ui/sheet"
-import { Separator } from "@/components/ui/separator"
-import {useCartStore} from '@/lib/store/CartStore'
+} from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
+import {useCartStore} from '@/lib/store/CartStore';
 import {useEffect, useState} from "react";
-
 export default function Navbar() {
 
     const user = useStore((s) => s.user);
@@ -27,14 +26,22 @@ export default function Navbar() {
     const [count ,setCount ] = useState(0);
 
     useEffect(() => {
-        const count = getCartCount();
-        setCount(count);
+        // Defer state update to next tick
+        const timer = setTimeout(() => {
+            const count = getCartCount();
+            setCount(count);
+        }, 0);
+
+        // Cleanup function
+        return () => clearTimeout(timer);
     }, [cart]);
+
     const handleSignOut =async ()=>{
-        signOut();
+        await signOut();
         logout();
         clearGuestCart();
     }
+
     return (
         <nav className="fixed top-0 w-full bg-darkgray dark:bg-black shadow-md z-50">
             <div className="container flex items-center justify-between py-4">

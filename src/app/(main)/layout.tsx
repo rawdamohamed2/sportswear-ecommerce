@@ -1,7 +1,7 @@
 'use client'
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { useStore } from '@/lib/store/store';
-import Loader from "@/components/Loader";
+import {toast} from "sonner";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const { setCurrentUser } = useStore();

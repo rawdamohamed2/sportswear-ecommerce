@@ -3,7 +3,6 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { supabase } from '../supabase/supabase';
 import { User } from '@/types';
-import {useCartStore} from '@/lib/store/CartStore'
 
 interface UserState {
     id: string;

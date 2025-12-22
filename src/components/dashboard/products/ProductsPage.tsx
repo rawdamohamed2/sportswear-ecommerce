@@ -5,21 +5,14 @@ import { ProductsTable } from '@/components/dashboard/products/products-table';
 import { ProductDialog } from '@/components/dashboard/products/product-dialog';
 import { Button } from '@/components/ui/button';
 import { Plus} from 'lucide-react';
-import {brand, Category, Product} from '@/types/index';
+import { Product,ProductFormData} from '@/types';
 import Loader from "@/components/Loader";
 import {ProductService} from "@/lib/services/products";
 import { Package, PackageCheck, PackageX} from 'lucide-react';
 import {toast} from "sonner";
-interface productData {
-    name: string;
-    description: string;
-    price: string;
-    discount: string | '0';
-    stock: string ;
-    image_url: string;
-    categories: Category[] | null;
-    brands: brand[] | null;
-}
+
+
+
 export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
     const [relod, setrelod]=useState(false);
@@ -45,7 +38,6 @@ export default function ProductsPage() {
                 ProductService.getProducts()
             ]);
             setProducts(products);
-            console.log(products);
         } catch (error) {
             toast(`Failed to load dashboard products: ${error}`);
         } finally {
@@ -53,7 +45,7 @@ export default function ProductsPage() {
         }
     };
 
-    const handleAddProduct = async (id: string | null, productData: productData) => {
+    const handleAddProduct = async (id: string | null, productData: ProductFormData) => {
         setLoading(true);
         try {
             console.log(productData);
@@ -75,7 +67,7 @@ export default function ProductsPage() {
         }
     };
 
-    const handleEditProduct = async (id: string|null , ProductData: productData) => {
+    const handleEditProduct = async (id: string|null , ProductData: ProductFormData) => {
         if (!editingProduct) return;
         console.log(id  , ProductData);
         try {

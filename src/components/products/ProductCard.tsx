@@ -205,7 +205,7 @@ export default function ProductCard({product}: ProductCardProps) {
                         onClick={handleAddToCart}
                     >
                         <ShoppingCart className="me-2 h-4 w-4" />
-                        {isLoading ? 'Adding...' : isOutOfStock? 'Out of Stock' : 'Add to Cart'}
+                        {isLoading ? 'Adding...' : (product.stock || 0) <= 0 ? 'Out of Stock' : 'Add to Cart'}
                     </Button>
                     <Button
                         variant="outline"

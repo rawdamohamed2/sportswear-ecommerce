@@ -3,11 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Search, Tag, Filter } from 'lucide-react';
-import {Blog, brand, Category, Product} from "@/types";
+import { Tag, Filter } from 'lucide-react';
+import {Blog,Category} from "@/types";
 import {ProductService} from "@/lib/services/products";
 import {toast} from "sonner";
 import {useEffect, useState} from "react";
+import Loader from "@/components/Loader";
 
 interface BlogSidebarProps {
     blogs:Blog[];
@@ -16,7 +17,6 @@ interface BlogSidebarProps {
 
 export function BlogSidebar({ blogs , blog }: BlogSidebarProps) {
     const [categories, setCategories] = useState<Category[]>();
-    const [brands, setBrands] = useState<brand[]>();
     const [isLoading, setIsLoading] = useState(false);
 
     const getCategories  = async () => {
@@ -25,9 +25,6 @@ export function BlogSidebar({ blogs , blog }: BlogSidebarProps) {
             const result = await  ProductService.getAllCategories();
             const categories = result as Category[];
             setCategories(categories);
-            const brands = await ProductService.getAllBrands();
-            const brand = brands as brand[];
-            setBrands(brand);
         }
         catch (error) {
             if (error instanceof Error) {
@@ -43,6 +40,7 @@ export function BlogSidebar({ blogs , blog }: BlogSidebarProps) {
     useEffect(() => {
         getCategories();
     }, []);
+    if(isLoading)return <Loader/>;
     return (
         <div className="space-y-6">
 

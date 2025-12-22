@@ -5,7 +5,7 @@ import { UsersTable } from '@/components/dashboard/user/users-table';
 import { UserDialog } from '@/components/dashboard/user/user-dialog';
 import { Button } from '@/components/ui/button';
 import { Plus, Users, Shield, User } from 'lucide-react';
-import { User as UserType, UserFormData } from '@/types/index';
+import { User as UserType, UserFormData } from '@/types';
 import {UserService} from "@/lib/services/user";
 
 import Loader from "@/components/Loader";
@@ -139,6 +139,7 @@ export default function UsersPage() {
     };
 
     if(loading) return <Loader />;
+
     return (
         <div className="margin-up container mx-auto p-6">
             {error.length>0?<div className={`my-3 p-2 bg-red-200 text-darkgray`}>{error}</div>:''}
@@ -207,7 +208,10 @@ export default function UsersPage() {
             <UserDialog
                 open={isDialogOpen}
                 onOpenChange={setIsDialogOpen}
-                onSubmit={editingUser ? handleEditUser : handleAddUser}
+                onSubmit={editingUser ?
+                    (handleEditUser as (id: string | null, userData: UserFormData) => void) :
+                    handleAddUser
+                }
                 editingUser={editingUser}
             />
         </div>

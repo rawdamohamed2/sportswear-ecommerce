@@ -19,9 +19,9 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { OrderStat, OrderStatus,orderResponse } from '@/types';
+import { OrderStat, OrderStatus } from '@/types';
 import { OrderService } from '@/lib/services/orders';
-import { Search, Filter,Download, RefreshCw } from 'lucide-react';
+import { Search, Filter, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function OrdersPage() {
@@ -58,9 +58,10 @@ export default function OrdersPage() {
     const fetchOrders = async () => {
         setIsLoading(true);
         try {
-            const {orders}  = await OrderService.getAllOrders();
-            setOrders(orders);
-            setFilteredOrders(orders);
+            const response = await OrderService.getAllOrders();
+            const ordersData = response?.orders || [];
+            setOrders(ordersData);
+            setFilteredOrders(ordersData);
         } catch (error) {
             setError(`Error fetching orders: ${error}`);
             toast.error('Failed to load orders');
@@ -154,8 +155,8 @@ export default function OrdersPage() {
         try {
             await OrderService.cancelOrder(orderId);
             toast.success('Order cancelled successfully');
-            fetchOrders();
-            fetchStats();
+            await fetchOrders();
+            await fetchStats();
         } catch (error) {
             console.error('Error deleting order:', error);
             toast.error('Failed to cancel order');
@@ -166,19 +167,14 @@ export default function OrdersPage() {
         try {
             await OrderService.updateOrderStatus(orderId, newStatus);
             toast.success(`Order status updated to ${newStatus}`);
-            fetchOrders();
-            fetchStats();
+            await fetchOrders();
+            await fetchStats();
         } catch (error) {
             console.error('Error updating order status:', error);
             toast.error('Failed to update order status');
         }
     };
 
-    const handleExportOrders = () => {
-        // Implement export functionality
-        toast.info('Export feature coming soon');
-    };
-    console.log(orders);
     if(!orders) return <section className={`flex justify-center margin-up`}>
         <p className={`text-4xl text-darkgray text-center font-bold`}>
             There are no orders.
@@ -360,8 +356,8 @@ export default function OrdersPage() {
                             updatedOrder.status
                         );
                         toast.success('Order updated successfully');
-                        fetchOrders();
-                        fetchStats();
+                        await fetchOrders();
+                        await fetchStats();
                         setIsDialogOpen(false);
                     } catch (error) {
                         console.error('Error updating order:', error);

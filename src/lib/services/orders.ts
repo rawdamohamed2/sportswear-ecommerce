@@ -1,5 +1,5 @@
 import { supabase } from '../supabase/supabase';
-import {Order, orderResponse, OrderStatus} from '@/types';
+import {Order,OrderStatus} from '@/types';
 
 import {toast} from "sonner";
 
@@ -88,17 +88,19 @@ export class OrderService {
             const { data, error } = await supabase
                 .from('orders')
                 .select(`
-          *,
-          order_items (
-            *,
-            products (*)
-          )
-        `).eq('id', orderId).single();
+                *,
+                order_items (
+                    *,
+                    products (*)
+                )
+            `)
+                .eq('id', orderId)
+                .single();
 
             if (error) {
                 console.error('Joined query error:', error);
-                // Fall back to separate queries
-                return this.getOrderById(orderId);
+                // Throw the error instead of recursing infinitely
+                throw new Error(`Failed to fetch order: ${error.message}`);
             }
 
             return data as Order;
@@ -106,7 +108,8 @@ export class OrderService {
             if (error instanceof Error) {
                 throw new Error(`Failed to fetch order: ${error.message}`);
             } else {
-                console.error('Error in getOrderByIdJoined:', error);
+                // 🔧 FIX: Always throw an error in catch block
+                throw new Error('Failed to fetch order: Unknown error occurred');
             }
         }
     }

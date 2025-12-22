@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import {  Blog} from '@/types/index';
+import {  Blog} from '@/types';
 import { format } from 'date-fns';
 
 interface BlogCardProps {

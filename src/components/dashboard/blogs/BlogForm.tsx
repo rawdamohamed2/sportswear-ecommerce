@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Blog, User} from '@/types';
+import {Blog} from '@/types';
 import {
     Save,
     X,
@@ -22,16 +22,10 @@ type BlogFormData = {
     id?: string;
     author_id: string;
     title: string;
-    body: string | null;
+    body: string;
     image_url: string;
     tags: string[];
 }
-const LUCIDE_ICONS = [
-    'file-text', 'image', 'video', 'music', 'code', 'book', 'newspaper',
-    'megaphone', 'trending-up', 'users', 'target', 'award', 'star',
-    'heart', 'thumbs-up', 'message-square', 'share-2', 'calendar',
-    'clock', 'map-pin', 'globe', 'cpu', 'wifi', 'battery', 'shield'
-];
 
 export const BlogForm: React.FC<BlogFormProps> = ({
                                                       blog,
@@ -53,15 +47,20 @@ export const BlogForm: React.FC<BlogFormProps> = ({
 
     useEffect(() => {
         if (blog) {
-            setFormData({
-                id: blog.id,
-                title: blog.title,
-                body: blog.body,
-                image_url: blog.image_url,
-                tags: blog.tags || [],
-                author_id: blog.author_id,
-            });
-            setPreviewImage(blog.image_url);
+            // Use setTimeout to defer state update
+            const timer = setTimeout(() => {
+                setFormData({
+                    id: blog.id,
+                    title: blog.title,
+                    body: blog.body || '',
+                    image_url: blog.image_url,
+                    tags: blog.tags || [],
+                    author_id: blog.author_id,
+                });
+                setPreviewImage(blog.image_url);
+            }, 0);
+
+            return () => clearTimeout(timer);
         }
     }, [blog]);
 

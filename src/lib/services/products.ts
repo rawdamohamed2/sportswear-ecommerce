@@ -1,7 +1,10 @@
 import { supabase } from '../supabase/supabase';
-import { Product, ProductFormData} from '@/types';
+import { Product, ProductFormData,Category,brand} from '@/types';
 import {toast} from "sonner";
-
+interface ProductCategoryJoin {
+    categories: Category;
+    // other fields if any
+}
 export class ProductService {
 
     // Get all products
@@ -32,7 +35,7 @@ export class ProductService {
             const formattedProducts = products.map(product => ({
                 ...product,
                 brands: product.product_brands?.[0]?.brands || null,
-                categories: product.product_categories?.map((pc) => pc.categories) || []
+                categories: product.product_categories?.map((pc:ProductCategoryJoin) => pc.categories) || []
             }));
 
             return formattedProducts;
@@ -70,7 +73,7 @@ export class ProductService {
         const formattedProducts = {
             ...data,
             brand: data.products_brands?.[0]?.brands || null,
-            categories: data.product_categories?.map(pc => pc.categories) || []
+            categories: data.product_categories?.map((pc:ProductCategoryJoin) => pc.categories) || []
         }
         return formattedProducts as Product;
     };
@@ -79,7 +82,6 @@ export class ProductService {
     // Create product (admin only)
     static async createProduct(product: ProductFormData) {
         try {
-            console.log(product);
             const { data: createdProduct, error: productError } = await supabase
                 .from('products')
                 .insert([{
@@ -93,15 +95,15 @@ export class ProductService {
                 .select()
                 .single();
 
-            if (productError) return  productError;
+            if (productError) return productError;
 
             const relationsPromises = [];
 
-
-            if (product.categories?.length) {
+            //  Check if categories is an array
+            if (product.categories && Array.isArray(product.categories) && product.categories.length > 0) {
                 relationsPromises.push(
                     supabase.from('product_categories').insert(
-                        product.categories.map(cat => ({
+                        product.categories.map((cat: Category) => ({
                             product_id: createdProduct.id,
                             category_id: cat.id
                         }))
@@ -109,19 +111,19 @@ export class ProductService {
                 );
             }
 
-            // العلامات التجارية
-            if (product.brands?.length) {
+            //  Check if brands is an array AND has length property
+            if (product.brands && Array.isArray(product.brands) && product.brands.length > 0) {
                 relationsPromises.push(
                     supabase.from('product_brands').insert(
-                        product.brands.map(brand => ({
+                        product.brands.map((brandItem: brand) => ({ // 🔧 Add type annotation
                             product_id: createdProduct.id,
-                            brand_id: brand.id
+                            brand_id: brandItem.id
                         }))
                     )
                 );
             }
 
-            // تنفيذ جميع عمليات الإدراج
+            // Execute all insertions
             if (relationsPromises.length > 0) {
                 await Promise.all(relationsPromises);
             }
@@ -146,7 +148,7 @@ export class ProductService {
         try {
             console.log('Updating product:', id, product);
 
-            // 1. تحديث بيانات المنتج الأساسية
+            // 1. Update basic product data
             const productToUpdate = {
                 name: product.name,
                 description: product.description,
@@ -164,32 +166,42 @@ export class ProductService {
                 .single();
 
             if (productError) {
-                return productError.message ;
+                return productError.message;
             }
 
-            toast('Product basic info updated:', updatedProduct);
+            // Check if arrays exist and have length
+            const categoryIds = product.categories && Array.isArray(product.categories)
+                ? product.categories.map((cat: Category) => cat.id).filter(Boolean)
+                : [];
 
-            if (product.categories || product.brands) {
+            const brandIds = product.brands && Array.isArray(product.brands)
+                ? product.brands.map((brandItem: brand) => brandItem.id).filter(Boolean) // 🔧 Add type
+                : [];
+
+            // 2. Update relations only if we have categories or brands
+            if (categoryIds.length > 0 || brandIds.length > 0) {
                 const relationsResult = await this.updateProductRelations(
                     id,
-                    product.categories?.map(cat => cat.id).filter(Boolean) || [],
-                    product.brands?.map(brand => brand.id).filter(Boolean) || []
+                    categoryIds,
+                    brandIds
                 );
-                if (relationsResult?.success ) {
-                    return  'Product and relations updated successfully'
+
+                if (relationsResult?.success) {
+                    toast('Product and relations updated successfully');
 
                 } else {
-                    return `Product updated but relations failed`}
+                    toast(`Product updated but relations failed`);
+                }
             }
 
-            // 3. إرجاع النتيجة النهائية
-
+            toast('Product updated successfully');
 
         } catch (error) {
             if (error instanceof Error) {
                 return error.message;
             } else {
                 console.error('Unexpected error in updateProduct:', error);
+                return 'Unexpected error occurred';
             }
         }
     };
@@ -323,7 +335,7 @@ export class ProductService {
     };
 
     static async getFilteredProducts(selectedBrands: string[], selectedCategories: string[]) {
-        console.log(selectedBrands, selectedCategories);
+
         try {
             let productIdsFromBrands: string[] = [];
             let productIdsFromCategories: string[] = [];
@@ -424,7 +436,7 @@ export class ProductService {
                 ...product,
                 brands: product.product_brands?.[0]?.brands || null,
                 categories:
-                    product.product_categories?.map((pc) => pc.categories) || [],
+                    product.product_categories?.map((pc:ProductCategoryJoin) => pc.categories) || [],
             }));
         } catch (error) {
             console.error("Error fetching products:", error);

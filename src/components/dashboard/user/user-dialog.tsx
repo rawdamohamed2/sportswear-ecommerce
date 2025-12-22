@@ -19,7 +19,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
-import { User, UserFormData } from '@/types/index';
+import { User, UserFormData } from '@/types';
+
 interface UserData {
     name: string;
     email: string;
@@ -51,15 +52,33 @@ export function UserDialog({
 
     useEffect(() => {
         if (editingUser) {
-            const { id, created_at, updated_at, ...userData } = editingUser;
-            setFormData(userData);
+            // Use setTimeout to defer state update
+            const timer = setTimeout(() => {
+                const { id, created_at, updated_at, ...userData } = editingUser;
+
+                //  FIX: Ensure phone is always a string
+                setFormData({
+                    name: userData.name || '',
+                    email: userData.email || '',
+                    phone: userData.phone || '',  // Convert undefined/null to empty string
+                    role: userData.role || 'customer',
+                    password: '',  // Don't load password for security
+                });
+            }, 0);
+
+            return () => clearTimeout(timer);
         } else {
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                role: 'customer',
-            });
+            const timer = setTimeout(() => {
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    role: 'customer',
+                    password: '',
+                });
+            }, 0);
+
+            return () => clearTimeout(timer);
         }
     }, [editingUser]);
 

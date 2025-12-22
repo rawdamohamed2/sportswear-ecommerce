@@ -21,72 +21,90 @@ import {
 } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { X } from 'lucide-react';
-import {brand, Category, Product} from '@/types';
-import {ProductService} from "@/lib/services/products";
-import {toast} from "sonner";
+import { brand, Category, Product, ProductFormData } from '@/types'; // 🔧 Import ProductFormData
+import { ProductService } from "@/lib/services/products";
+import { toast } from "sonner";
 import Loader from "@/components/Loader";
-interface productData {
-    name: string;
-    description: string;
-    price: string;
-    discount: string | '0';
-    stock: string ;
-    image_url: string;
-    categories: Category[] | null;
-    brands: brand[] | null;
 
-}
+// 🔧 REMOVE the local productData interface
+// interface productData {
+//     name: string;
+//     description: string;
+//     price: string;
+//     discount: string | '0';
+//     stock: string;
+//     image_url: string;
+//     categories: Category[] | null;
+//     brands: brand[] | null;  // ❌ This causes the conflict
+// }
+
 interface ProductDialogProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
-    onSubmit: (id: string | null, ProductData: productData) => void;
+    onSubmit: (id: string | null, ProductData: ProductFormData) => void; // 🔧 Use ProductFormData
     editingProduct: Product | null;
     availableCategories: Category[];
     availableBrands: brand[];
 }
 
 export function ProductDialog({
-                               open,
-                               onOpenChange,
-                               onSubmit,
-                               editingProduct,
-                           }: ProductDialogProps) {
-    const [formData, setFormData] = useState<productData>({
+                                  open,
+                                  onOpenChange,
+                                  onSubmit,
+                                  editingProduct,
+                              }: ProductDialogProps) {
+    // 🔧 Use ProductFormData type
+    const [formData, setFormData] = useState<ProductFormData>({
         name: '',
         description: '',
         price: '',
         discount: '',
         stock: '',
         image_url: '',
-        categories: [] ,
-        brands:[] ,
+        categories: [],
+        brands: null,  // 🔧 Single brand, not array
     });
 
     const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
     const [availableCategories, setfilteredCategories] = useState<Category[]>([]);
-    const [selectedBrands, setSelectedBrands] = useState<brand[]>([]);
+    const [selectedBrands, setSelectedBrands] = useState<brand[]>([]); // 🔧 Keep for UI
     const [availableBrands, setfilteredBrands] = useState<brand[]>([]);
     const [newCategoryName, setNewCategoryName] = useState('');
     const [newBrandName, setNewBrandName] = useState('');
     const [IsLoading, setIsLoading] = useState(false);
     const [categoryValue, setCategoryValue] = useState('');
     const [brandValue, setBrandValue] = useState('');
+
     useEffect(() => {
         getCategories();
         if (editingProduct) {
-            const { id, created_at, categories, brands, ...productData } = editingProduct;
-            const formattedData = {
-                ...productData,
-                price: productData.price.toString(),
-                discount: productData.discount?.toString() ?? '0',
-                stock: productData.stock?.toString() || '',
-                categories: categories || [],
-                brands: brands || [],
+            // 🔧 Convert Product to ProductFormData
+            const categories = Array.isArray(editingProduct.categories)
+                ? editingProduct.categories
+                : [];
+
+            // 🔧 Handle single brand (take first if array)
+            const brands = editingProduct.brands;
+            const selectedBrand = Array.isArray(brands) && brands.length > 0
+                ? brands[0]
+                : brands;
+
+            const formattedData: ProductFormData = {
+                name: editingProduct.name || '',
+                description: editingProduct.description || '',
+                price: editingProduct.price?.toString() || '',
+                discount: editingProduct.discount?.toString() || '',
+                stock: editingProduct.stock?.toString() || '',
+                image_url: editingProduct.image_url || '',
+                categories: categories,
+                brands: selectedBrand,
             };
+
             setFormData(formattedData);
-            setSelectedCategories(categories || []);
-            setSelectedBrands(brands || []);
+            setSelectedCategories(categories);
+            setSelectedBrands(selectedBrand ? [selectedBrand] : []);
         } else {
+            // Reset form
             setFormData({
                 name: '',
                 description: '',
@@ -95,33 +113,37 @@ export function ProductDialog({
                 stock: '',
                 image_url: '',
                 categories: [],
-                brands: [],
+                brands: null,
             });
             setSelectedCategories([]);
             setSelectedBrands([]);
             setNewCategoryName('');
             setNewBrandName('');
-
         }
     }, [editingProduct]);
 
     const handleCategorySelect = (categoryName: string) => {
         const category = availableCategories.find(c => c.name === categoryName);
-        console.log(category);
         if (category && !selectedCategories.some(c => c.name === category.name)) {
             const updatedCategories = [...selectedCategories, category];
             setSelectedCategories(updatedCategories);
-            setFormData(prev => ({ ...prev, categories: updatedCategories }));
+            setFormData(prev => ({
+                ...prev,
+                categories: updatedCategories
+            }));
         }
     };
 
     const handleBrandSelect = (brandName: string) => {
-        const brand = availableBrands.find(b => b.name === brandName);
-        console.log(brand);
-        if (brand && !selectedBrands.some(b => b.name === brand.name)) {
-            const updatedBrands = [...selectedBrands, brand];
-            setSelectedBrands(updatedBrands);
-            setFormData(prev => ({ ...prev, brands: updatedBrands }));
+        const brandObj = availableBrands.find(b => b.name === brandName);
+        if (brandObj) {
+            //  Set single brand (not array)
+            setFormData(prev => ({
+                ...prev,
+                brands: brandObj
+            }));
+            // Keep array for UI display
+            setSelectedBrands([brandObj]);
         }
     };
 
@@ -133,41 +155,50 @@ export function ProductDialog({
             };
             const updatedCategories = [...selectedCategories, newCategory];
             setSelectedCategories(updatedCategories);
-            setFormData(prev => ({ ...prev, categories: updatedCategories }));
+            setFormData(prev => ({
+                ...prev,
+                categories: updatedCategories
+            }));
             setNewCategoryName('');
         }
     };
 
     const addNewBrand = () => {
-        if (newBrandName.trim() && !selectedBrands.some(b => b.name === newBrandName.trim())) {
+        if (newBrandName.trim()) {
             const newBrand: brand = {
-                id: `temp-${Date.now()}`, // Temporary ID for new brand
+                id: `temp-${Date.now()}`,
                 name: newBrandName.trim()
             };
-            const updatedBrands = [...selectedBrands, newBrand];
-            setSelectedBrands(updatedBrands);
-            setFormData(prev => ({ ...prev, brands: updatedBrands }));
+            // Set single brand
+            setFormData(prev => ({
+                ...prev,
+                brands: newBrand
+            }));
+            // Keep array for UI
+            setSelectedBrands([newBrand]);
             setNewBrandName('');
         }
     };
 
-    const removeCategoryByName = (categoryName: string) => {
+    const removeCategory = (categoryName: string) => {
         const updatedCategories = selectedCategories.filter(
             c => c.name !== categoryName
         );
         setSelectedCategories(updatedCategories);
-        setFormData(prev => ({ ...prev, categories: updatedCategories }));
+        setFormData(prev => ({
+            ...prev,
+            categories: updatedCategories
+        }));
     };
 
-    const removeBrandByName = (brandName: string) => {
-
-        const updatedBrands = selectedBrands.filter(
-            b => b.name !== brandName
-        );
-        setSelectedBrands(updatedBrands);
-        setFormData(prev => ({ ...prev, brands: updatedBrands }));
+    const removeBrand = () => {
+        //  Clear single brand
+        setFormData(prev => ({
+            ...prev,
+            brands: null
+        }));
+        setSelectedBrands([]);
     };
-
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -177,7 +208,7 @@ export function ProductDialog({
             return;
         }
 
-        // Validate price, discount, and stock are valid numbers
+        // Validate numbers
         if (isNaN(parseFloat(formData.price)) || parseFloat(formData.price) < 0) {
             toast('Price must be a valid positive number');
             return;
@@ -198,24 +229,20 @@ export function ProductDialog({
         onOpenChange(false);
     };
 
-    const getCategories  = async () => {
+    const getCategories = async () => {
         setIsLoading(true);
         try {
-            const result = await  ProductService.getAllCategories();
-            const cetegory = result as Category[];
-            setfilteredCategories(cetegory);
+            const categories = await ProductService.getAllCategories();
+            setfilteredCategories(categories as Category[]);
             const brands = await ProductService.getAllBrands();
-            const brand = brands as brand[];
-            setfilteredBrands(brand);
-        }
-        catch (error) {
+            setfilteredBrands(brands as brand[]);
+        } catch (error) {
             if (error instanceof Error) {
                 toast(error.message);
             } else {
                 toast('Something went wrong');
             }
-        }
-        finally {
+        } finally {
             setIsLoading(false);
         }
     };
@@ -228,7 +255,7 @@ export function ProductDialog({
         brand => !selectedBrands.some(b => b.id === brand.id)
     );
 
-    if (IsLoading)return <Loader/>;
+    if (IsLoading) return <Loader/>;
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange} >
@@ -387,7 +414,7 @@ export function ProductDialog({
                                 {category.name}
                                 <Button className={`hover:bg-transparent bg-transparent cursor-pointer text-darkgray`} onClick={(e) => {
                                     e.stopPropagation();
-                                    removeCategoryByName(category.name);  // Pass name instead of ID
+                                    removeCategory(category.name);  // Pass name instead of ID
                                 }}>
                                     <X  />
                                 </Button>
@@ -456,7 +483,7 @@ export function ProductDialog({
                                 {brand.name}
                                 <Button className={`hover:bg-transparent bg-transparent cursor-pointer text-darkgray`} onClick={(e) => {
                                     e.stopPropagation();
-                                    removeBrandByName(brand.name);  // Pass name instead of ID
+                                    removeBrand();  // Pass name instead of ID
                                 }}>
                                     <X  />
                                 </Button>

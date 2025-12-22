@@ -22,7 +22,7 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { OrderStat, OrderStatus } from '@/types';
+import { OrderStat, OrderStatus  } from '@/types';
 import {
     User,
     Package,
@@ -52,13 +52,22 @@ export function OrderDialog({
 
     useEffect(() => {
         if (order) {
-            setNotes('');
-            setTrackingNumber('');
-            setStatus(order?.status);
+            // Defer state updates to next tick
+            const timer = setTimeout(() => {
+                setStatus(order?.status);
+                setNotes('');
+                setTrackingNumber('');
+            }, 0);
+
+            return () => clearTimeout(timer);
         } else {
-            setStatus('pending');
-            setNotes('');
-            setTrackingNumber('');
+            const timer = setTimeout(() => {
+                setStatus('pending');
+                setNotes('');
+                setTrackingNumber('');
+            }, 0);
+
+            return () => clearTimeout(timer);
         }
     }, [order]);
 
@@ -92,7 +101,7 @@ export function OrderDialog({
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto">
+            <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto ">
                 <DialogHeader>
                     <DialogTitle>Order Details</DialogTitle>
                     <DialogDescription>
@@ -175,14 +184,7 @@ export function OrderDialog({
                                 </Label>
                                 {order.address ? (
                                     <div className="p-3 bg-gray-50 rounded-md">
-                                        <p className="text-sm text-darkgray">
-                                            {order?.address}
-                                        </p>
-                                        {order.address.phone && (
-                                            <p className="text-sm mt-1">
-                                                Phone: {order.address.phone}
-                                            </p>
-                                        )}
+                                            {order.address}
                                     </div>
                                 ) : (
                                     <p className="text-sm text-gray-500 p-3 bg-gray-50 rounded-md">

@@ -17,7 +17,7 @@ import {
     FileText,
     ShoppingCart,
     Receipt,
-    Globe, LucideIcon
+    Globe, LucideIcon, XCircle
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -33,13 +33,13 @@ interface StatusConfig {
     bgColor: string;
     borderColor: string;
 }
-type OrderStatus = 'pending' | 'processing' | 'shipped' | 'delivered';
+type OrderStatus = 'pending' | 'processing' | 'shipped' | 'delivered'|'cancelled';
 
 const statusConfig: Record<OrderStatus,StatusConfig> = {
     pending: {
         label: 'Pending',
         icon: Clock,
-        color: 'text-yellow-600',
+        color: 'text-yellow-800',
         bgColor: 'bg-yellow-100',
         borderColor: 'border-yellow-200'
     },
@@ -63,6 +63,13 @@ const statusConfig: Record<OrderStatus,StatusConfig> = {
         color: 'text-green-600',
         bgColor: 'bg-green-100',
         borderColor: 'border-green-200'
+    },
+    cancelled: {
+        label: 'Cancelled',
+        icon: XCircle,
+        color: 'text-red-800',
+        bgColor: 'bg-red-100',
+        borderColor: 'border-red-200',
     }
 };
 

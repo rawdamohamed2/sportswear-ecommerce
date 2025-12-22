@@ -16,14 +16,14 @@ export interface UserData {
     role: 'customer' | 'admin';
     password?: string;
 }
-// export interface Address {
-//     id: string;
-//     user_id: string;
-//     city: string;
-//     street: string;
-//     apartment: string;
-//     phone?: string;
-// }
+export interface Address {
+    id: string;
+    user_id: string;
+    city: string;
+    street: string;
+    apartment: string;
+    phone?: string;
+}
 
 // // Product Types
 // export interface ProductVariant {
@@ -68,7 +68,18 @@ export interface Product {
     categories: Category[] | null;
     brands: brand | null;
 }
-
+export interface ProductFormData {
+    id?: string;
+    name: string;
+    description: string;
+    price: string;
+    discount: string | '0';
+    stock: string;
+    image_url: string;
+    categories: Category[] | null;
+    brands: brand | null;
+    created_at?:string // Single brand
+}
 export interface Category {
     id: string;
     name: string;
@@ -105,9 +116,10 @@ export interface Order {
     created_at: string;
     updated_at?: string;
     order_items?: OrderItem[];
-    address: Address;
+    address: string;
     payments: Payment;
 }
+// In your types file (e.g., @/types/index.ts)
 
 
 export interface OrderItem {
@@ -125,8 +137,7 @@ export interface OrderStat {
     total_price: number;
     payment_method: string;
     status: OrderStatus;
-    address_id?: string;
-    address?: Address;
+    address: string;
     notes?: string;
     tracking_number?: string;
     shipping_method?: string;
@@ -145,17 +156,7 @@ export interface orderResponse {
 }
 
 //
-//
-// export interface OrderItemStat {
-//     id: string;
-//     order_id: string;
-//     product_id: string;
-//     variant_id?: string;
-//     quantity: number;
-//     price: number;
-//     product?: Product;
-//     variant?: ProductVariant;
-// }
+
 
 export interface Address {
     id: string;

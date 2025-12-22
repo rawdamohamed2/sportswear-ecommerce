@@ -32,7 +32,7 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { OrderStat, OrderItemStat, OrderStatus } from '@/types/index';
+import { OrderStat, OrderItem, OrderStatus } from '@/types';
 import {
     MoreVertical,
     Eye,
@@ -123,11 +123,11 @@ export function OrdersTable({
         );
     };
 
-    const getOrderItemsPreview = (items: OrderItemStat[] | null) => {
+    const getOrderItemsPreview = (items: OrderItem[] | null) => {
         if (!items || items.length === 0) return 'No items';
 
         if (items.length === 1) {
-            return `${items[0].quantity}x ${items[0].product?.name || 'Product'}`;
+            return `${items[0].quantity}x ${items[0].products?.name || 'Product'}`;
         }
 
         return `${items.length} items`;

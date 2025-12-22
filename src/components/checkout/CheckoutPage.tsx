@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { ArrowLeft, CreditCard, Lock, Shield, Truck, CheckCircle, Loader2, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowLeft, CreditCard, Lock, Shield, Truck, CheckCircle, Loader2, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { useStore } from "@/lib/store/store";
 import { toast } from "sonner";
@@ -194,17 +194,15 @@ export default function CheckoutPage() {
     };
 
     // Handle form input changes
-    const handleInputChange = (section: keyof CheckoutFormData, field: string, value: any) => {
-        console.log(value);
+    const handleInputChange = (section: keyof CheckoutFormData, field: string, value: string|boolean|number) => {
         setFormData(prev => ({
             ...prev,
             [section]: {
-                ...prev[section],
+                ...(prev[section] as object),
                 [field]: value
             }
         }));
     };
-
 
     // Handle place order
     const handlePlaceOrder = async () => {

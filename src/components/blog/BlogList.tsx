@@ -1,5 +1,5 @@
 import  BlogCard  from './BlogCard';
-import { Blog } from '@/types/index';
+import { Blog } from '@/types';
 
 interface BlogListProps {
     posts: Blog[];

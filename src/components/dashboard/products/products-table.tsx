@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Edit, Trash2, ShoppingBag, Percent, Package } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import {brand, Category, Product} from '@/types/index';
+import {Category, Product} from '@/types';
 
 interface ProductsTableProps {
     products: Product[];
@@ -59,10 +59,7 @@ export function ProductsTable({ products, onEdit, onDelete }: ProductsTableProps
         return categories.map(cat => cat.name).join(', ');
     };
 
-    const formatBrands = (brands: brand[] | null) => {
-        if (!brands || brands.length === 0) return 'No brands';
-        return brands.map(brand => brand.name).join(', ');
-    };
+
 
     return (
         <div className="rounded-md border">

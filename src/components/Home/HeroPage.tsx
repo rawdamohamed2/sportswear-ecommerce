@@ -10,7 +10,7 @@ const HeroPage = () => {
             <div className="hero lg:col-span-2 md:col-span-1 col-span-1 h-full ">
                 <div className={`h-full flex flex-col md:justify-end justify-center items-center md:w-95 w-full mx-auto py-5`}>
                     <h1 className="text-center uppercase sm:text-5xl text-4xl font-semibold pb-5">
-                        It's your time to step up your game
+                        It&apos;s your time to step up your game
                     </h1>
                     <Link href="/products" className={`border-b border-font`}>
                         Shop Now

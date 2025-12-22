@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Edit, Trash2, Phone, Mail } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { User } from '@/types/index';
+import { User } from '@/types';
 
 interface UsersTableProps {
     users: User[];
