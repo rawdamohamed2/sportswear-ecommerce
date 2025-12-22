@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 
 import ProductCard from "@/components/products/ProductCard";
 
-import {Brand, brand, Category, Product} from '@/types';
+import {brand, Category, Product} from '@/types';
 import ProductsHeader from "@/components/products/ProductsHeader";
 
 import PaginationProducts from "@/components/products/PaginationProducts";
@@ -149,7 +149,7 @@ const Page =  () => {
                                         <AccordionTrigger>Brands</AccordionTrigger>
                                         <AccordionContent>
                                             <ul className={`list flex flex-col gap-4`}>
-                                                {brands?.map((brand:Brand)=>{
+                                                {brands?.map((brand:brand)=>{
                                                     return <li key={brand.id} className={`flex items-center space-x-2`}>
                                                         <Checkbox id={brand.id}
                                                                   checked={selectedBrands.includes(brand.name)}
