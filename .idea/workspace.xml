@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/utils/product-converters.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(main)/aboutus/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/aboutus/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(main)/contactus/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/contactus/page.tsx" afterDir="false" />
@@ -40,6 +39,7 @@
       <change beforePath="$PROJECT_DIR$/src/lib/services/checkout.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/services/orders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/orders.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/services/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +191,7 @@
       <workItem from="1766258790631" duration="21506000" />
       <workItem from="1766336147348" duration="37524000" />
       <workItem from="1766381896871" duration="2270000" />
-      <workItem from="1766424098507" duration="7039000" />
+      <workItem from="1766424098507" duration="7370000" />
     </task>
     <servers />
   </component>
