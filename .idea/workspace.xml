@@ -6,41 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/aboutus/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/aboutus/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/contactus/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/contactus/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/orders/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/orders/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/profile/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/profile/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/HeroPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/HeroPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blog/BlogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blog/BlogCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blog/BlogList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blog/BlogList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blog/BlogSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blog/BlogSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart/AddToCartButton.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart/CartIcon.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/checkout/CheckoutPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/checkout/CheckoutPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contactUs/ContactUs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contactUs/ContactUs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contactUs/InformationContact.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/AdminDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/AdminDashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/blogs/BlogForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/blogs/BlogForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/blogs/BlogStats.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/blogs/Blogspage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/blogs/Blogspage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/orders/OrdersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/orders/OrdersPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/orders/order-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/orders/order-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/orders/orders-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/orders/orders-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/products/ProductsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/products/ProductsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/products/product-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/products/product-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/products/products-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/products/products-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/user/UsersPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/user/UsersPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/user/user-dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/user/user-dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/user/users-table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/user/users-table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orders/OrdersCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders/OrdersCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/products/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/products/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/services/checkout.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/services/orders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/orders.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/services/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,34 +64,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rawda/WebstormProjects/sportswear/src/app/(main)/blog&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;C:/Program Files/nodejs/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Next.js: server-side.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Rawda\\WebstormProjects\\sportswear\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Rawda/WebstormProjects/sportswear/src/app/(main)/blog",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Program Files/nodejs/node",
+    "nodejs_package_manager_path": "npm",
+    "npm.Next.js: server-side.executor": "Run",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\Rawda\\WebstormProjects\\sportswear\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rawda\WebstormProjects\sportswear\src\app\(main)\blog" />
@@ -191,7 +157,7 @@
       <workItem from="1766258790631" duration="21506000" />
       <workItem from="1766336147348" duration="37524000" />
       <workItem from="1766381896871" duration="2270000" />
-      <workItem from="1766424098507" duration="7370000" />
+      <workItem from="1766424098507" duration="8331000" />
     </task>
     <servers />
   </component>
