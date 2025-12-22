@@ -109,7 +109,7 @@ export function CartPage() {
     if (error instanceof Error) {
         toast.error(error.message);
     } else {
-        toast.error("Something went wrong");
+        //toast.error("Something went wrong");
     }
 
     if (items.length === 0) {

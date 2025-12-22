@@ -24,6 +24,7 @@ const ProductDetails = () => {
     const { addToCart, addToGuestCart } = useCartStore();
     const [relod ,setrelod]=useState(false);
     const CurrentUser = useStore((s) => s.CurrentUser);
+    const [quantity,setQuantity]=useState(1);
     const { updateQuantity} = useCartStore();
     let { guestCart }= useCartStore();
     const cart=useCartStore((s) => s.cart);
@@ -45,11 +46,11 @@ const ProductDetails = () => {
             setisLoading(false);
         }
     };
-    const handleAddToCart = async () => {
+
+    const handleAddToCart = async (quantity:number = 1) => {
         setisLoading(true);
         const userId = CurrentUser?.id;
         const productId = tid;
-        const quantity = 1;
         try {
             if (userId) {
                 await addToCart(userId, productId,quantity);
@@ -86,7 +87,7 @@ const ProductDetails = () => {
             }
         }
     };
-    const quantity =item?.quantity?item?.quantity:1;
+    // const quantity =item?.quantity?item?.quantity:1;
 
     useEffect(() => {
 
@@ -229,7 +230,7 @@ const ProductDetails = () => {
                     <div className="flex flex-col sm:flex-row gap-4 items-center">
                         <div className="flex items-center  border border-gray-300 rounded-lg">
                             <button className="px-4 py-3 text-darkgray hover:bg-gray-200 rounded-s-lg cursor-pointer"
-                                    onClick={() => handleQuantityChange(item?.id?item?.id:'', quantity - 1)}
+                                    onClick={() => setQuantity(quantity-1)}
                                     disabled={quantity <= 1}
                             >
                                 -
@@ -237,12 +238,14 @@ const ProductDetails = () => {
                             <span className="px-6 py-3 text-darkgray ">{quantity}</span>
                             <button className="px-4 py-3 text-darkgray hover:bg-gray-200 rounded-e-lg cursor-pointer"
                                     value={quantity}
-                                    onClick={() => handleQuantityChange(item?.id?item?.id:'', quantity + 1)}
+                                    onClick={() => setQuantity(quantity+1)}
                             >
                                 +
                             </button>
                         </div>
-                        <Button className="flex-1 bg-primary hover:bg-primary/80 cursor-pointer" onClick={handleAddToCart}>
+                        <Button className="flex-1 bg-primary hover:bg-primary/80 cursor-pointer" onClick={()=>{
+                            handleAddToCart(quantity);
+                        }}>
                             <ShoppingBag className="sm:w-4 h-4 ms-2" />
                             Add to Cart
                         </Button>

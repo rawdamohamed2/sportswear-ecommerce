@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(main)/products/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/products/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/products/ProductDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/products/ProductDetails.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/Rawda/WebstormProjects/sportswear/src/app/(main)/blog",
+    "last_opened_file_path": "C:/Users/Rawda/WebstormProjects/sportswear",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -159,7 +158,8 @@
       <workItem from="1766258790631" duration="21506000" />
       <workItem from="1766336147348" duration="37524000" />
       <workItem from="1766381896871" duration="2270000" />
-      <workItem from="1766424098507" duration="9028000" />
+      <workItem from="1766424098507" duration="9878000" />
+      <workItem from="1766434635598" duration="522000" />
     </task>
     <servers />
   </component>

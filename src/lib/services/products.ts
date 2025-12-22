@@ -28,7 +28,7 @@ export class ProductService {
                 )
             `)
                 .order('created_at', { ascending: false });
-            console.log(products);
+
             if (error) throw error;
 
             // Format the data

@@ -98,6 +98,7 @@ const Page =  () => {
     useEffect(() => {
         if (selectedBrands.length === 0 && selectedCategories.length === 0) return;
         getFilteredProducts();
+        console.log(selectedBrands);
     }, [selectedBrands, selectedCategories]);
 
     if(isLoading) return <Loader/>;
