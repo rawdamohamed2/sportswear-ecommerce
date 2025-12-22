@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import FeaturedProducts from "@/components/Home/FeaturedProducts";
 import NewArrivalProducts from "@/components/Home/NewArrivalProducts";
@@ -8,7 +8,6 @@ import {ProductService} from "@/lib/services/products";
 import {toast} from "sonner";
 import Loader from "@/components/Loader";
 const HomeTap = () => {
-    const isLoading = useRef(false);
     const [IsLoading, setIsLoading] = useState(false);
     const [products, setProducts] = useState<Product[]>([]);
     const [featuredproducts, setFeaturedProducts] = useState<Product[]>([]);

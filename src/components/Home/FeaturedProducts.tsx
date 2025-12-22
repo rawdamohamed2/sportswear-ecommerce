@@ -1,4 +1,4 @@
-
+'use client'
 import React, {useState} from 'react';
 import ProductCard from "@/components/products/ProductCard";
 import {

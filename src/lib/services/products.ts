@@ -112,7 +112,7 @@ export class ProductService {
             // العلامات التجارية
             if (product.brands?.length) {
                 relationsPromises.push(
-                    supabase.from('products_brands').insert(
+                    supabase.from('product_brands').insert(
                         product.brands.map(brand => ({
                             product_id: createdProduct.id,
                             brand_id: brand.id
