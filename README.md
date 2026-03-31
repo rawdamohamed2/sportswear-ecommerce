@@ -82,4 +82,4 @@ Skills: HTML, CSS, Bootstrap, JavaScript, TypeScript, React, Next.
 
 ```
 ##  Live Demo
-[Click here to try the app][(https://sportswear-ecommerce-eight.vercel.app/)]
+[Click here to try the app](https://sportswear-ecommerce-eight.vercel.app/)
