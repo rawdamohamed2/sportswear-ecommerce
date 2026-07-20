@@ -1,36 +1,48 @@
 #  Sportswear E-Commerce Website
 
-A modern and responsive sportswear e-commerce web application built with *Next.js, **TypeScript, and **Tailwind CSS*.  
-The project provides a full online shopping experience including product browsing, filtering, cart management, and orders tracking.
+A modern and responsive sportswear e-commerce application built with Next.js (App Router), TypeScript, Tailwind CSS, and Supabase. The project delivers a complete online shopping experience for customers and includes an Admin Dashboard for managing products, categories, and orders.
 
 ---
 
 ## ✨ Features
 
-- 🏠 Modern Home Page with promotional sections
-- 👕 Product Listing & Details pages
-- 🔍 Filter products by:
-  - Category
-  - Brand
-- 🛒 Shopping Cart functionality
-- 📦 Orders page with status tabs (Pending, Processing, Shipped, Delivered)
-- 👤 User-friendly UI using *shadcn/ui*
-- 🌐 Responsive design for all screen sizes
-- ⚡ Fast performance with Next.js App Router
--   Backend with supabase
--   Use Zustand to management data
+### 🛍 Customer Features
 
+* Modern and responsive home page
+* Product listing and product details
+* Search, category, and brand filtering
+* Shopping cart
+* Order tracking with multiple order statuses
+* Responsive design for all devices
+
+### ⚙️ Admin Dashboard
+
+* Manage products (Create, Update, Delete)
+* Manage categories and brands
+* View and manage customer orders
+* Update order statuses
+* Dashboard with an intuitive admin interface
+
+### 🚀 Technical Features
+
+* Next.js App Router
+* TypeScript
+* Tailwind CSS
+* shadcn/ui components
+* Zustand for state management
+* Supabase for backend and database
+* Fast and optimized performance
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-- *Framework:* Next.js (App Router)
-- *Language:* TypeScript
-- *Styling:* Tailwind CSS
-- *UI Components:* shadcn/ui
-- *State Management:* Zustand
-- *Backend / Database:* Supabase
-- *Icons:* Lucide React
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **UI Components:** shadcn/ui
+* **State Management:** Zustand
+* **Backend & Database:** Supabase
+* **Icons:** Lucide React
 
 ---
 
@@ -66,20 +78,15 @@ Create a .env.local file and add:
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
 
+```
+---
+
+## 🚀 Live Demo
+
+👉 [Click here to try the app](https://sportswear-ecommerce-eight.vercel.app/)
 
 ---
 
+## 👩‍💻 Author
 
-👩‍💻 Author
-
-Rawda Mohamed Mahmoud
-
-Computer Science Student
-
-Web Designer & Frontend Developer
-
-Skills: HTML, CSS, Bootstrap, JavaScript, TypeScript, React, Next.
-
-```
-##  Live Demo
-[Click here to try the app](https://sportswear-ecommerce-eight.vercel.app/)
+**Rawda Mohamed**
