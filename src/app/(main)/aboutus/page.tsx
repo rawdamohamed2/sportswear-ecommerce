@@ -7,7 +7,6 @@ export default function AboutPage() {
     return (
         <div className="mt-10 min-h-screen bg-background text-darkgray">
 
-            {/* Hero Section */}
             <section className="relative bg-gradient-to-r from-primary to-primary/70 text-white">
                 <div className="container mx-auto px-6 py-20 text-center">
                     <Badge className="mb-4">About Us</Badge>
@@ -21,7 +20,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Our Story */}
             <section className="container mx-auto px-6 py-16">
                 <div className="grid md:grid-cols-2 gap-10 items-center">
                     <div>
@@ -53,7 +51,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Mission & Values */}
             <section className="bg-muted py-16">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="text-3xl font-bold mb-10">Our Mission & Values</h2>
@@ -92,7 +89,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Stats */}
             <section className="container mx-auto px-6 py-16">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                     <Card>
@@ -125,7 +121,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* CTA */}
             <section className="bg-primary text-white py-16">
                 <div className="container mx-auto px-6 text-center space-y-6">
                     <h2 className="text-3xl font-bold">

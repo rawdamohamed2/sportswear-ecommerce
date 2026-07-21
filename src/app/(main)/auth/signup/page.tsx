@@ -15,7 +15,7 @@ const Page = () => {
     return (
         <div className={`min-h-screen`}>
             {
-                token? <Loader/>:< Signup/>
+                token? <Loader/>:<Signup/>
             }
         </div>
     )

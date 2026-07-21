@@ -28,8 +28,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
-          <main className={'bg-background dark:bg-black text-font dark:text-white '}>
+          <main className={'bg-background dark:bg-black text-font dark:text-white'}>
               <Navbar />
               <Toaster position="top-center" />
               {children}

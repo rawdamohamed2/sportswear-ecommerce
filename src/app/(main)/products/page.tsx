@@ -98,11 +98,11 @@ const Page =  () => {
     useEffect(() => {
         if (selectedBrands.length === 0 && selectedCategories.length === 0) return;
         getFilteredProducts();
-        console.log(selectedBrands);
     }, [selectedBrands, selectedCategories]);
 
     if(isLoading) return <Loader/>;
     if (!products) return <Loader/>;
+
     return (
         <section className="container mx-auto text-darkgray margin-up">
             {error?<div className={`bg-red-200 p-2 rounded-xl`}>{error}</div>:''}

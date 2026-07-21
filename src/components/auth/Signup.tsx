@@ -45,11 +45,11 @@ export default function Signup() {
     const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormData>({
         resolver: zodResolver(registerSchema)
     });
-    console.log(error);
-    const onSubmit = async (signupdata: RegisterFormData) => {
+
+    const onSubmit = async (signupData: RegisterFormData) => {
         try {
-            await signUp(signupdata);
-            console.log(error,loading);
+
+            await signUp(signupData);
             if(error !== null || ''){
                 setError(error);
                 return;
@@ -80,39 +80,31 @@ export default function Signup() {
                         <div className="space-y-2">
                             <Label htmlFor="name">Full Name</Label>
                             <Input id="name" placeholder="John Doe" {...register('name')} disabled={loading} />
-                            {errors.name?<div className="bg-red-200 py-1 px-2 my-2 rounded-lg my-2">{errors.name.message}</div>:''}
+                            {errors.name?<div className="bg-red-200 py-1 px-2 rounded-lg my-2">{errors.name.message}</div>:''}
                         </div>
 
                         <div className="space-y-2">
                             <Label htmlFor="email">Email</Label>
                             <Input id="email" type="email" placeholder="you@example.com" {...register('email')} disabled={loading} />
-                            {errors.email?<div className="bg-red-200 py-1 px-2 my-2 rounded-lg my-2">{errors.email.message}</div>:''}
+                            {errors.email?<div className="bg-red-200 py-1 px-2 rounded-lg my-2">{errors.email.message}</div>:''}
                         </div>
 
                         <div className="space-y-2">
                             <Label htmlFor="phone">Phone </Label>
                             <Input id="phone" type="tel" placeholder="+1234567890" {...register('phone')} disabled={loading} />
-                            {errors.phone?<div className="bg-red-200 py-1 px-2 my-2 rounded-lg my-2">{errors.phone.message}</div>:''}
+                            {errors.phone?<div className="bg-red-200 py-1 px-2 rounded-lg my-2">{errors.phone.message}</div>:''}
                         </div>
 
                         <div className="space-y-2">
                             <Label htmlFor="password">Password</Label>
                             <Input id="password" type="password" placeholder="••••••••" {...register('password')} disabled={loading} />
-                            {errors.password?.message?<div className="bg-red-200 py-1 px-2 my-2 rounded-lg my-2">{errors.password.message}</div>:''}
+                            {errors.password?.message?<div className="bg-red-200 py-1 px-2 rounded-lg my-2">{errors.password.message}</div>:''}
                         </div>
 
                         <div className="space-y-2">
                             <Label htmlFor="confirmPassword">Confirm Password</Label>
                             <Input id="confirmPassword" type="password" placeholder="••••••••" {...register('confirmPassword')} disabled={loading} />
                             {errors.confirmPassword?.message?<div className="bg-red-200 py-1 px-2 my-2 rounded-lg">{errors.confirmPassword.message}</div>:''}
-                        </div>
-
-                        <div className="space-y-2">
-                            <Label htmlFor="role">Role</Label>
-                            <select id="role" {...register('role')} disabled={loading} className="border p-2 w-full rounded">
-                                <option value="customer">customer</option>
-                                <option value="admin">admin</option>
-                            </select>
                         </div>
 
                         <Button type="submit" className="w-full" disabled={loading}>

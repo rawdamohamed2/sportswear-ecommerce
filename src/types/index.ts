@@ -1,28 +1,28 @@
 // User Types
 export interface User {
-    id: string;
-    name: string;
-    email: string;
-    phone?: string;
-    role: 'customer' | 'admin';
-    created_at: string;
-    updated_at: string;
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  role: "customer" | "admin";
+  created_at: string;
+  updated_at: string;
 }
-export type UserFormData = Omit<User, 'id' | 'created_at' | 'updated_at'>;
+export type UserFormData = Omit<User, "id" | "created_at" | "updated_at">;
 export interface UserData {
-    name: string;
-    email: string;
-    phone: string | null;
-    role: 'customer' | 'admin';
-    password?: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  role: "customer" | "admin";
+  password?: string;
 }
 export interface Address {
-    id: string;
-    user_id: string;
-    city: string;
-    street: string;
-    apartment: string;
-    phone?: string;
+  id: string;
+  user_id: string;
+  city: string;
+  street: string;
+  apartment: string;
+  phone?: string;
 }
 
 // // Product Types
@@ -47,165 +47,174 @@ export interface Address {
 // }
 
 export interface ProductFormData {
-    name: string;
-    description: string;
-    price: string;
-    discount: string;
-    stock: string;
-    image_url: string;
-    categories: Category[] | null;
-    brands: brand | null;
+  name: string;
+  description: string;
+  price: string;
+  discount: string;
+  stock: string;
+  image_url: string;
+  categories: Category[] | null;
+  brands: brand | null;
 }
 export interface Product {
-    id: string;
-    name: string;
-    description: string;
-    price: number;
-    discount: number | null;
-    stock: number | null;
-    image_url: string;
-    created_at: string;
-    categories: Category[] | null;
-    brands: brand | null;
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  discount: number | null;
+  stock: number | null;
+  image_url: string;
+  created_at: string;
+  categories: Category[] | null;
+  brands: brand | null;
+}
+
+export interface ProductIteb {
+  id: string;
+  title: string;
+  category: string;
+  price: string;
+  imageUrl: string;
+  imageAlt: string;
+  isNew?: boolean;
+  isLimited?: boolean;
+  techSpec?: boolean;
 }
 export interface ProductFormData {
-    id?: string;
-    name: string;
-    description: string;
-    price: string;
-    discount: string | '0';
-    stock: string;
-    image_url: string;
-    categories: Category[] | null;
-    brands: brand | null;
-    created_at?:string // Single brand
+  id?: string;
+  name: string;
+  description: string;
+  price: string;
+  discount: string | "0";
+  stock: string;
+  image_url: string;
+  categories: Category[] | null;
+  brands: brand | null;
+  created_at?: string; // Single brand
 }
 export interface Category {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
 }
 export interface brand {
-    id: string;
-    name: string;
+  id: string;
+  name: string;
 }
 
 export interface CartStat {
-    id: string;
-    user_id: string;
-    created_at: string;
-    items: CartItem[];// إضافة هذه الخاصية
+  id: string;
+  user_id: string;
+  created_at: string;
+  items: CartItem[]; // إضافة هذه الخاصية
 }
 
 export interface CartItem {
-    id: string;
-    cart_id: string;
-    product_id: string;
-    quantity: number;
-    product?: Product | null;
+  id: string;
+  cart_id: string;
+  product_id: string;
+  quantity: number;
+  product?: Product | null;
 }
 
-export type OrderStatus = 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
+export type OrderStatus =
+  "pending" | "processing" | "shipped" | "delivered" | "cancelled";
 
 // Order Types
 export interface Order {
-    id: string;
-    user_id: string;
-    total_price: number;
-    payment_method: string;
-    status: OrderStatus;
-    created_at: string;
-    updated_at?: string;
-    order_items?: OrderItem[];
-    address: string;
-    payments: Payment;
+  id: string;
+  user_id: string;
+  total_price: number;
+  payment_method: string;
+  status: OrderStatus;
+  created_at: string;
+  updated_at?: string;
+  order_items?: OrderItem[];
+  address: string;
+  payments: Payment;
 }
 // In your types file (e.g., @/types/index.ts)
 
-
 export interface OrderItem {
-    id: string;
-    order_id: string;
-    product_id: string;
-    quantity: number;
-    unit_price: number;
-    created_at: string;
-    products: Product;
+  id: string;
+  order_id: string;
+  product_id: string;
+  quantity: number;
+  unit_price: number;
+  created_at: string;
+  products: Product;
 }
 export interface OrderStat {
-    id: string;
-    user_id: string;
-    total_price: number;
-    payment_method: string;
-    status: OrderStatus;
-    address: string;
-    notes?: string;
-    tracking_number?: string;
-    shipping_method?: string;
-    payment_status?: string;
-    order_items?: OrderItem[];
-    user?: User;
-    created_at: string;
-    updated_at?: string;
+  id: string;
+  user_id: string;
+  total_price: number;
+  payment_method: string;
+  status: OrderStatus;
+  address: string;
+  notes?: string;
+  tracking_number?: string;
+  shipping_method?: string;
+  payment_status?: string;
+  order_items?: OrderItem[];
+  user?: User;
+  created_at: string;
+  updated_at?: string;
 }
 export interface orderResponse {
-    orders:OrderStat[] ;
-    total: number|0;
-    page: number;
-    limit: number;
-    totalPages: number;
+  orders: OrderStat[];
+  total: number | 0;
+  page: number;
+  limit: number;
+  totalPages: number;
 }
 
 //
 
-
 export interface Address {
-    id: string;
-    user_id: string;
-    city: string;
-    street: string;
-    apartment: string;
-    phone?: string;
+  id: string;
+  user_id: string;
+  city: string;
+  street: string;
+  apartment: string;
+  phone?: string;
 }
 // Payment Types
 export interface Payment {
-    id: string;
-    order_id: string;
-    status: string;
-    transaction_id?: string;
-    amount: number;
-    created_at: string;
+  id: string;
+  order_id: string;
+  status: string;
+  transaction_id?: string;
+  amount: number;
+  created_at: string;
 }
-
 
 // Blog Types
 export interface Blog {
-    id: string;
-    author_id: string;
-    title: string;
-    body: string | null;
-    image_url: string;
-    created_at: string;
-    updated_at: string;
-    users?: User;
-    tags: string[];
+  id: string;
+  author_id: string;
+  title: string;
+  body: string | null;
+  image_url: string;
+  created_at: string;
+  updated_at: string;
+  users?: User;
+  tags: string[];
 }
 
-export interface  BlogFormData {
-    author_id: string;
-    title: string;
-    body: string | null;
-    image_url: string;
-    tags: string[];
+export interface BlogFormData {
+  author_id: string;
+  title: string;
+  body: string | null;
+  image_url: string;
+  tags: string[];
 }
-export type userData ={
-    created_at: string;
-    email: string;
-    id:string;
-    name:string;
-    orders:Order[];
-    password:string;
-    phone:string;
-    role:string;
-    updated_at:string;
-}
-
+export type userData = {
+  created_at: string;
+  email: string;
+  id: string;
+  name: string;
+  orders: Order[];
+  password: string;
+  phone: string;
+  role: string;
+  updated_at: string;
+};

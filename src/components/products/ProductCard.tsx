@@ -90,9 +90,7 @@ export default function ProductCard({product}: ProductCardProps) {
 
             <Link href={`/products/${id}`}>
                 <CardHeader className="p-0 relative overflow-hidden">
-                    {/* Product Image */}
                     <div className="relative aspect-square overflow-hidden bg-gray-100">
-                        {/* Skeleton Loader */}
                         {imgLoading && (
                             <div className="absolute inset-0 animate-pulse bg-primary" />
                         )}
@@ -111,7 +109,7 @@ export default function ProductCard({product}: ProductCardProps) {
                             className={`object-cover group-hover:scale-110 transition-all duration-500 ${
                                 imgLoading ? "opacity-0" : "opacity-100"
                             }`}
-                            onLoadingComplete={() => setImgLoading(false)}
+                            onLoad={() => setImgLoading(false)}
                             onError={() => {
                                 setImgError(true);
                                 setImgLoading(false);

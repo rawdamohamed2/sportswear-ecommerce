@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { LuUser } from "react-icons/lu";
 import { LiaShoppingCartSolid } from "react-icons/lia";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { useStore } from '@/lib/store/store';
 import {
     Sheet,
@@ -15,6 +16,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import {useCartStore} from '@/lib/store/CartStore';
 import {useEffect, useState} from "react";
+
 export default function Navbar() {
 
     const user = useStore((s) => s.user);
@@ -26,13 +28,11 @@ export default function Navbar() {
     const [count ,setCount ] = useState(0);
 
     useEffect(() => {
-        // Defer state update to next tick
         const timer = setTimeout(() => {
             const count = getCartCount();
             setCount(count);
         }, 0);
 
-        // Cleanup function
         return () => clearTimeout(timer);
     }, [cart]);
 
@@ -63,7 +63,7 @@ export default function Navbar() {
                                 cart?.items?.length?<p className={`text-sm font-bold`}>{count}</p>:''
                             }
                         </div>
-                        <LiaShoppingCartSolid className="icon" />
+                        <HiOutlineShoppingBag className="icon" />
                     </Link>
 
                     {token ? (
@@ -74,14 +74,14 @@ export default function Navbar() {
                             {
                                 CurrentUser?.role=='admin'?<Link
                                     href={`/admin`}
-                                    className="text-md bg-primary px-2 m-auto pb-1 text-center rounded-3xl hover:bg-primary/80 hover:text-darkgray"
+                                    className="navBtn"
                                 >
                                     Dashboard
                                 </Link>:''
                             }
                             <button
                                 onClick={handleSignOut}
-                                className="text-md bg-primary px-2 m-auto pb-1 text-center rounded-3xl hover:bg-primary/80 hover:text-darkgray"
+                                className="navBtn"
                             >
                                 Log out
                             </button>
