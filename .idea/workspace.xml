@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/aboutus/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/aboutus/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/auth/signup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/auth/signup/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/blog/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/blog/[slug]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/landingPage/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/landingPage/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(main)/products/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(main)/products/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/BlogSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BlogSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/HomeTap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/HomeTap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/NewArrivalProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/NewArrivalProducts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LandingPage/TechLabSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LandingPage/TechLabSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/Signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/Signup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/blog/BlogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/blog/BlogCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contactUs/ContactUs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contactUs/ContactUs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/products/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/products/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/store/Products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/store/Products.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/supabase/ClientSupabase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/supabase/ClientSupabase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/supabase/supabase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/supabase/supabase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/index.ts" afterDir="false" />
-    </list>
+    <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="fix: add missing files and remove deleted ones" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,8 +177,17 @@
       <workItem from="1766381896871" duration="2270000" />
       <workItem from="1766424098507" duration="9878000" />
       <workItem from="1766434635598" duration="1038000" />
-      <workItem from="1784586313475" duration="19537000" />
+      <workItem from="1784586313475" duration="19838000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: add missing files and remove deleted ones">
+      <option name="closed" value="true" />
+      <created>1784607958628</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1784607958628</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +209,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: add missing files and remove deleted ones" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: add missing files and remove deleted ones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
