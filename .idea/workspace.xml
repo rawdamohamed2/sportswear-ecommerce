@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="fix: add missing files and remove deleted ones" />
+    <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="fix: add missing files and remove deleted ones">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/LoadingProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LoadingProductCard.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +180,7 @@
       <workItem from="1766381896871" duration="2270000" />
       <workItem from="1766424098507" duration="9878000" />
       <workItem from="1766434635598" duration="1038000" />
-      <workItem from="1784586313475" duration="19838000" />
+      <workItem from="1784586313475" duration="20735000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add missing files and remove deleted ones">
       <option name="closed" value="true" />
