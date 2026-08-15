@@ -14,7 +14,7 @@ A modern and responsive sportswear e-commerce web application with product brows
 ## 📸 Preview
 
 <div align="center">
-  <img src="https://res.cloudinary.com/dlbgzpo7s/image/upload/v1773657668/sportswear-ecommerce-eight.vercel.app__l77wic.png" alt="Sportswear E-Commerce preview" width="85%" />
+  <img src="https://res.cloudinary.com/dlbgzpo7s/image/upload/v1786757441/sportswear-ecommerce-eight.vercel.app__6_kwgnrz.png" alt="Sportswear E-Commerce preview" width="85%" />
 </div>
 
 ---
