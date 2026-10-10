@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="cfabbbe7-2a58-4660-82d2-efa3a5d71f4f" name="Changes" comment="fix: add missing files and remove deleted ones">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/LoadingProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LoadingProductCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/services/cart.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/cart.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/services/orders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/orders.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/services/products.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/products.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/services/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/services/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/supabase/supabase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/supabase/supabase.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +153,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28539.60" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28539.102" />
       </set>
     </attachedChunks>
   </component>
@@ -180,7 +186,15 @@
       <workItem from="1766381896871" duration="2270000" />
       <workItem from="1766424098507" duration="9878000" />
       <workItem from="1766434635598" duration="1038000" />
-      <workItem from="1784586313475" duration="20735000" />
+      <workItem from="1784586313475" duration="20972000" />
+      <workItem from="1784745004068" duration="1183000" />
+      <workItem from="1785089896744" duration="1156000" />
+      <workItem from="1785093157176" duration="4000" />
+      <workItem from="1791489257600" duration="24000" />
+      <workItem from="1791490956502" duration="300000" />
+      <workItem from="1791629690749" duration="152000" />
+      <workItem from="1791630929036" duration="4000" />
+      <workItem from="1791631038569" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="fix: add missing files and remove deleted ones">
       <option name="closed" value="true" />
@@ -252,14 +266,16 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Home/NewArrivals.tsx</url>
           <line>3</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="199" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/layout/Footer.tsx</url>
           <line>44</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/lib/services/user.ts</url>
+          <option name="timeStamp" value="209" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
